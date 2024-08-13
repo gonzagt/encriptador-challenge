@@ -1,0 +1,15 @@
+/* Testeando que funcione el CSS */
+h1 {
+    text-align: center;
+    background-color: rgb(200, 100, 50);
+}
+
+.result {
+    height: 200px;
+    width: 30%;
+    background-color: rgb(0, 0, 0);
+}
+
+.resultado {
+    color: white;
+}
