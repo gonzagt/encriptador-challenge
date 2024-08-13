@@ -6,4 +6,4 @@ Challenge de Encriptador de texto para Alura Latam.
 
 ¡Espero que les guste el resultado! 😄
 
-Gonzalo.
+Gonzalo T.
