@@ -5,12 +5,15 @@ h1 {
     background-color: rgb(200, 100, 50);
 }
 
-.result {
+.resultado {
     height: 200px;
     width: 30%;
     background-color: rgb(0, 0, 0);
+    color:white;
 }
 
-.resultado {
-    color: white;
+.img {
+    display: flex;
+    width: 40%;
+    height: 40%;
 }

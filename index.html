@@ -30,21 +30,19 @@
             </div>
         </div>
         
-        <div>
-            <img class="img" src="./img/question.webp" alt="Caricatura de persona con un signo de pregunta esperando respuesta.">
-        </div>
+        <img class="img" src="./img/question.webp" alt="Caricatura de persona con un signo de pregunta esperando respuesta.">
 
-        <button id="ocultar" onclick="ocultar()">Ocultar imagen</button>
-        <button id="mostrar" onclick="mostrar()" hidden>Mostrar imagen</button>
+        <!-- <button id="ocultar" onclick="ocultar()">Ocultar imagen</button>
+        <button id="mostrar" onclick="mostrar()" hidden>Mostrar imagen</button> -->
 
-        <div class="result">
-            <div class="resultado">Aquí va el resultado.</div>
-        </div>
-        <div>
-            <button class="copiar">
-                Copiar
-            </button>
-        </div>
+        <section class="resultado" hidden>
+            <div class="resultado__final">Aquí va el resultado.</div>
+            <div>
+                <button class="copiar">Copiar</button>
+                <button class="resetear" onclick="reset()">Reset</button>
+            </div>
+        </section>
+        
     </main>
     <footer>
         Creado por Gonzalo Tello, 2024.

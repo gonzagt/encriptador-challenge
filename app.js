@@ -1,7 +1,13 @@
 // Declaramos las variables
 
-const texto_user = document.getElementById('text');
+const boton = document.querySelector('.copiar');
+const caja = document.querySelector('.resultado');
+const imagen = document.querySelector('.img');
 const mensaje = document.getElementById('error');
+let resultado = [];
+let resultado__final = document.querySelector('.resultado__final');
+const texto_usuario = document.getElementById('text');
+
 const letras = {
     'a': 'ai',
     'e': 'enter',
@@ -9,7 +15,7 @@ const letras = {
     'o': 'ober',
     'u': 'ufat'
 };
-let resultado = [];
+
 
 // Declaramos las funciones
 
@@ -18,7 +24,7 @@ let resultado = [];
 // ejecutar la función.
 
 let encriptar = () => {
-    const texto = texto_user.value;
+    const texto = texto_usuario.value;
     const separar = texto.split('');
     let encriptado = 0;
 
@@ -44,8 +50,11 @@ let encriptar = () => {
     }
 
     encriptado = resultado.join('');
+    cambio();
+    console.log(encriptado);
 
-    return console.log(encriptado);
+    return resultado__final.textContent = encriptado;
+
 }
 
 // En esta segunda función, utilizo un ciclo 'for' para iterar sobre el objeto
@@ -54,64 +63,70 @@ let encriptar = () => {
 // utilizar las 2 formas.
 
 let desencriptar = () => {
-    const texto = texto_user.value
+    const texto = texto_usuario.value;
     let desencriptado = texto;
 
     for (let [letra, reemplazo] of Object.entries(letras)) {
         desencriptado = desencriptado.replaceAll(reemplazo, letra);
     }
-
-    return console.log(desencriptado);
+    cambio();
+    return resultado__final.textContent = desencriptado;
 }
 
 // Validación de minúsculas.
 
-texto_user.addEventListener('input', ()=>{
+texto_usuario.addEventListener('input', ()=>{
     const regex = /^[a-z' ']*$/;
-    if (regex.test(texto_user.value)) {
+    if (regex.test(texto_usuario.value)) {
         mensaje.textContent = '';
     } else {
         mensaje.textContent = '⛔ CUIDADO ⛔';
-        texto_user.value = texto_user.value.replace(/[^a-z' ']/g, '');
+        texto_usuario.value = texto_usuario.value.replace(/[^a-z' ']/g, '');
     }
 })
 
 // Botón de copiar casi listo, falta adaptar el lugar donde va a ir el texto 
 // encriptado/desencriptado y luego adaptar este botón para que funcione
 // correctamente.
-
-const boton = document.querySelector('.copiar');
-let texto = document.querySelector('.resultado');
     
 boton.addEventListener('click', () => {
     const tempInput = document.createElement('input');
-    tempInput.value = texto.textContent;
+    tempInput.value = resultado__final.textContent;
     document.body.appendChild(tempInput)
     tempInput.select();
     tempInput.setSelectionRange(0,99999);
 
     try {
-        document.execCommand('copy')
-            alert('copiado con éxito')
+        document.execCommand('copy');
     } catch (err) {
         console.log(`Se produjo el error ${err}`);       
     }
     document.body.removeChild(tempInput);
 })
 
+const reset = () => {
+    texto_usuario.value = '';
+    imagen.style.display = 'block';
+    caja.hidden = true;
+}
+
+const cambio = () => {
+    imagen.style.display = "none";
+    caja.hidden = false;
+}
 // Testeando propiedad style.display
 
-const btnOcultar = document.querySelector('#ocultar');
-const btnMostrar = document.querySelector('#mostrar');
+// const btnOcultar = document.querySelector('#ocultar');
+// const btnMostrar = document.querySelector('#mostrar');
 
-const ocultar = () => {
-    document.querySelector('.img').style.display = "none";
-    btnOcultar.hidden = true;
-    btnMostrar.hidden = false;
-}
+// const ocultar = () => {
+//     document.querySelector('.img').style.display = "none";
+//     btnOcultar.hidden = true;
+//     btnMostrar.hidden = false;
+// }
 
-const mostrar = () => {
-    document.querySelector('.img').style.display = "block";
-    btnOcultar.hidden = false;
-    btnMostrar.hidden = true;
-}
+// const mostrar = () => {
+//     document.querySelector('.img').style.display = "block";
+//     btnOcultar.hidden = false;
+//     btnMostrar.hidden = true;
+// }
