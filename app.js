@@ -1,6 +1,7 @@
 // Declaramos las variables
 
 const texto_user = document.getElementById('text');
+const mensaje = document.getElementById('error');
 const letras = {
     'a': 'ai',
     'e': 'enter',
@@ -49,7 +50,8 @@ let encriptar = () => {
 
 // En esta segunda función, utilizo un ciclo 'for' para iterar sobre el objeto
 // letras y con los métodos Object.entries y replaceAll, puedo fácilmente retornar  
-// el texto desencriptado.
+// el texto desencriptado. Es más fácil que la función para encriptar, pero quería
+// utilizar las 2 formas.
 
 let desencriptar = () => {
     const texto = texto_user.value
@@ -61,3 +63,15 @@ let desencriptar = () => {
 
     return console.log(desencriptado);
 }
+
+// Validación de minúsculas.
+
+texto_user.addEventListener('input', ()=>{
+    const regex = /^[a-z,' ']*$/;
+    if (regex.test(texto_user.value)) {
+        mensaje.textContent = '';
+    } else {
+        mensaje.textContent = '⛔ CUIDADO ⛔';
+        texto_user.value = texto_user.value.replace(/[^a-z, ' ']/g, '');
+    }
+})

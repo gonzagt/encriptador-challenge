@@ -17,7 +17,10 @@
         <div>
             <textarea name="text" id="text" rows="4" cols="40" placeholder="Ingrese el texto aquí..."></textarea>
         </div>
-        <small>⛔ No se aceptan mayúsculas, números o caracteres especiales.⛔</small>
+        <small>
+            <div id="error"></div>
+            No se aceptan mayúsculas, números o caracteres especiales.
+        </small>
         <div class="botones">
             <div class="btn_encriptar">
                 <button class="encriptar" type="button" onclick="encriptar()">Encriptar</button>
