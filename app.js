@@ -2,11 +2,11 @@
 
 const texto_user = document.getElementById('text');
 const letras = {
-    'ai': 'a',
-    'enter': 'e',
-    'imes': 'i',
-    'ober': 'o',
-    'ufat': 'u'
+    'a': 'ai',
+    'e': 'enter',
+    'i': 'imes',
+    'o': 'ober',
+    'u': 'ufat'
 };
 let resultado = [];
 
@@ -24,19 +24,15 @@ let encriptar = () => {
     if (resultado.length === 0) {
         separar.forEach((letra) => {
             if (letra === 'a') {
-                letra = 'ai'
-                resultado.push(letra)
+                resultado.push(letras.a);
             } else if (letra === 'e') {
-                letra = 'enter'
-                resultado.push(letra)
+                resultado.push(letras.e);
             } else if (letra === 'i') {
-                letra = 'imes'
-                resultado.push(letra)
+                resultado.push(letras.i);
             } else if (letra === 'o') {
-                letra = 'ober'
-                resultado.push(letra)
+                resultado.push(letras.o);
             } else if (letra === 'u') {
-                resultado.push('ufat')
+                resultado.push(letras.u);
             } else {
                 resultado.push(letra)
             }
@@ -46,7 +42,7 @@ let encriptar = () => {
         return encriptar();
     }
 
-    encriptado = resultado.join('')
+    encriptado = resultado.join('');
 
     return console.log(encriptado);
 }
@@ -59,7 +55,7 @@ let desencriptar = () => {
     const texto = texto_user.value
     let desencriptado = texto;
 
-    for (let [reemplazo, letra] of Object.entries(letras)) {
+    for (let [letra, reemplazo] of Object.entries(letras)) {
         desencriptado = desencriptado.replaceAll(reemplazo, letra);
     }
 
