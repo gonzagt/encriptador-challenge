@@ -98,3 +98,20 @@ boton.addEventListener('click', () => {
     }
     document.body.removeChild(tempInput);
 })
+
+// Testeando propiedad style.display
+
+const btnOcultar = document.querySelector('#ocultar');
+const btnMostrar = document.querySelector('#mostrar');
+
+const ocultar = () => {
+    document.querySelector('.img').style.display = "none";
+    btnOcultar.hidden = true;
+    btnMostrar.hidden = false;
+}
+
+const mostrar = () => {
+    document.querySelector('.img').style.display = "block";
+    btnOcultar.hidden = false;
+    btnMostrar.hidden = true;
+}
