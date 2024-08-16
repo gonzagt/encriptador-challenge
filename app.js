@@ -51,12 +51,17 @@ let encriptar = () => {
     return console.log(encriptado);
 }
 
+// En esta segunda función, utilizo un ciclo 'for' para iterar sobre el objeto
+// letras y con los métodos Object.entries y replaceAll, puedo fácilmente retornar  
+// el texto desencriptado.
+
 let desencriptar = () => {
     const texto = texto_user.value
-    resultado = '';
-    for (let letra of texto) {
-        resultado+= letras[letra] || letra;
+    let desencriptado = texto;
+
+    for (let [reemplazo, letra] of Object.entries(letras)) {
+        desencriptado = desencriptado.replaceAll(reemplazo, letra);
     }
 
-    return resultado
+    return console.log(desencriptado);
 }
