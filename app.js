@@ -67,11 +67,34 @@ let desencriptar = () => {
 // Validación de minúsculas.
 
 texto_user.addEventListener('input', ()=>{
-    const regex = /^[a-z,' ']*$/;
+    const regex = /^[a-z' ']*$/;
     if (regex.test(texto_user.value)) {
         mensaje.textContent = '';
     } else {
         mensaje.textContent = '⛔ CUIDADO ⛔';
-        texto_user.value = texto_user.value.replace(/[^a-z, ' ']/g, '');
+        texto_user.value = texto_user.value.replace(/[^a-z' ']/g, '');
     }
+})
+
+// Botón de copiar casi listo, falta adaptar el lugar donde va a ir el texto 
+// encriptado/desencriptado y luego adaptar este botón para que funcione
+// correctamente.
+
+const boton = document.querySelector('.copiar');
+let texto = document.querySelector('.resultado');
+    
+boton.addEventListener('click', () => {
+    const tempInput = document.createElement('input');
+    tempInput.value = texto.textContent;
+    document.body.appendChild(tempInput)
+    tempInput.select();
+    tempInput.setSelectionRange(0,99999);
+
+    try {
+        document.execCommand('copy')
+            alert('copiado con éxito')
+    } catch (err) {
+        console.log(`Se produjo el error ${err}`);       
+    }
+    document.body.removeChild(tempInput);
 })
