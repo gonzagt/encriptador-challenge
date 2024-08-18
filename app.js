@@ -41,7 +41,7 @@ let encriptar = () => {
             } else if (letra === 'u') {
                 resultado.push(letras.u);
             } else {
-                resultado.push(letra)
+                resultado.push(letra);
             }
         })
     } else {
@@ -50,8 +50,7 @@ let encriptar = () => {
     }
 
     encriptado = resultado.join('');
-    cambio();
-    console.log(encriptado);
+    resultado.length === 0 ? console.log('Error 404, text not found.'): cambio();
 
     return resultado__final.textContent = encriptado;
 
@@ -66,7 +65,9 @@ let desencriptar = () => {
     for (let [letra, reemplazo] of Object.entries(letras)) {
         desencriptado = desencriptado.replaceAll(reemplazo, letra);
     }
-    cambio();
+
+    desencriptado === '' ? console.log('Error 404, text not found.'): cambio();
+    
     return resultado__final.textContent = desencriptado;
 }
 
@@ -102,6 +103,7 @@ boton.addEventListener('click', () => {
 // -------------- Extra: botón de reset --------------
 
 const reset = () => {
+    resultado = [];
     texto_usuario.value = '';
     imagen.style.display = 'block';
     caja.hidden = true;
