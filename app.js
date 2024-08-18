@@ -66,7 +66,12 @@ const desencriptar = () => {
         desencriptado = desencriptado.replaceAll(reemplazo, letra);
     }
 
-    desencriptado === '' ? console.log('Error 404, text not found.'): cambio();
+    if (desencriptado === '') {
+        console.log('Error 404, text not found.'); 
+        reset();
+    } else {
+        cambio();
+    } 
     
     return resultado__final.textContent = desencriptado;
 }
@@ -94,6 +99,7 @@ boton.addEventListener('click', () => {
 
     try {
         document.execCommand('copy');
+        alert('Copiado con éxito.');
     } catch (err) {
         console.log(`Se produjo el error ${err}`);       
     }
@@ -103,11 +109,11 @@ boton.addEventListener('click', () => {
 // -------------- Extra: botón de reset --------------
 
 const reset = () => {
-    resultado = [];
     texto_usuario.value = '';
     imagen.style.display = 'block';
     caja.hidden = true;
     botones_resultado.hidden = true;
+    resultado = [];
 }
 
 const cambio = () => {
