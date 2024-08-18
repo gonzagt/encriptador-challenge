@@ -23,7 +23,7 @@ const letras = {
 
 // Encriptar usando if/else.
 
-let encriptar = () => {
+const encriptar = () => {
     const texto = texto_usuario.value;
     const separar = texto.split('');
     let encriptado = 0;
@@ -46,19 +46,19 @@ let encriptar = () => {
         })
     } else {
         resultado = [];
-        return encriptar();
+        encriptar();
     }
 
     encriptado = resultado.join('');
+    
     resultado.length === 0 ? console.log('Error 404, text not found.'): cambio();
 
     return resultado__final.textContent = encriptado;
-
 }
 
 // Desencriptar manejando un objeto.
 
-let desencriptar = () => {
+const desencriptar = () => {
     const texto = texto_usuario.value;
     let desencriptado = texto;
 
@@ -88,7 +88,7 @@ texto_usuario.addEventListener('input', ()=>{
 boton.addEventListener('click', () => {
     const tempInput = document.createElement('input');
     tempInput.value = resultado__final.textContent;
-    document.body.appendChild(tempInput)
+    document.body.appendChild(tempInput);
     tempInput.select();
     tempInput.setSelectionRange(0,99999);
 
