@@ -1,6 +1,10 @@
-/* Testeando que funcione el CSS */
+
+:root {
+    --fuente-roboto: roboto, Arial, Helvetica, sans-serif;
+}
+
 body {
-    font-family: roboto, Arial, Helvetica, sans-serif;
+    font-family: var(--fuente-roboto);
     display: flex;
     flex-direction: column;
     margin: 0;
@@ -20,8 +24,12 @@ h1 {
 }
 
 textarea {
-    max-width: 50%;
-    max-height: 50%;
+    max-width: 20vw;
+    max-height: 30vh;
+}
+
+small {
+    font-family: var(--fuente-roboto);
 }
 
 .resultado {
@@ -31,10 +39,11 @@ textarea {
     color:white;
 }
 
-.sector__usuario {
+.sector__usuario, .sector__resultado {
     text-align: center;
-    width: 500px;
-    height: 600px;
+    width: 80vw;
+    height: 60vh;
+    gap: 30px;
 }
 
 .botones {
@@ -42,16 +51,10 @@ textarea {
     justify-content: space-evenly;
 }
 
-.sector__resultado {
-    text-align: center;
-    width: 500px;
-    height: 600px;
-}
-
 .img {
     border: 2px solid black;
     border-color: black;
     border-radius: 100%;
-    width: 80%;
-    height: 60%;
+    width: 38vh;
+    height: 18vw;
 }
