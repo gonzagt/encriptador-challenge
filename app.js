@@ -1,12 +1,14 @@
-// Declaramos las variables
+// -------------- Variables --------------
 
 const boton = document.querySelector('.copiar');
+const botones_resultado = document.querySelector('.resultado__botones');
 const caja = document.querySelector('.resultado');
 const imagen = document.querySelector('.img');
 const mensaje = document.getElementById('error');
-let resultado = [];
-let resultado__final = document.querySelector('.resultado__final');
+const resultado__final = document.querySelector('.resultado__final');
 const texto_usuario = document.getElementById('text');
+
+let resultado = [];
 
 const letras = {
     'a': 'ai',
@@ -17,11 +19,9 @@ const letras = {
 };
 
 
-// Declaramos las funciones
+// -------------- Funciones --------------
 
-// En esta primera función, utilizo if/else para comprobar las letras del array
-// A su vez, si el array 'resultado' tiene contenido, se lo vacía y se vuelve a
-// ejecutar la función.
+// Encriptar usando if/else.
 
 let encriptar = () => {
     const texto = texto_usuario.value;
@@ -57,10 +57,7 @@ let encriptar = () => {
 
 }
 
-// En esta segunda función, utilizo un ciclo 'for' para iterar sobre el objeto
-// letras y con los métodos Object.entries y replaceAll, puedo fácilmente retornar  
-// el texto desencriptado. Es más fácil que la función para encriptar, pero quería
-// utilizar las 2 formas.
+// Desencriptar manejando un objeto.
 
 let desencriptar = () => {
     const texto = texto_usuario.value;
@@ -85,9 +82,7 @@ texto_usuario.addEventListener('input', ()=>{
     }
 })
 
-// Botón de copiar casi listo, falta adaptar el lugar donde va a ir el texto 
-// encriptado/desencriptado y luego adaptar este botón para que funcione
-// correctamente.
+// -------------- Botón de copiar --------------
     
 boton.addEventListener('click', () => {
     const tempInput = document.createElement('input');
@@ -104,29 +99,17 @@ boton.addEventListener('click', () => {
     document.body.removeChild(tempInput);
 })
 
+// -------------- Extra: botón de reset --------------
+
 const reset = () => {
     texto_usuario.value = '';
     imagen.style.display = 'block';
     caja.hidden = true;
+    botones_resultado.hidden = true;
 }
 
 const cambio = () => {
     imagen.style.display = "none";
     caja.hidden = false;
+    botones_resultado.hidden = false;
 }
-// Testeando propiedad style.display
-
-// const btnOcultar = document.querySelector('#ocultar');
-// const btnMostrar = document.querySelector('#mostrar');
-
-// const ocultar = () => {
-//     document.querySelector('.img').style.display = "none";
-//     btnOcultar.hidden = true;
-//     btnMostrar.hidden = false;
-// }
-
-// const mostrar = () => {
-//     document.querySelector('.img').style.display = "block";
-//     btnOcultar.hidden = false;
-//     btnMostrar.hidden = true;
-// }
