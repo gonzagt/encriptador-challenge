@@ -3,7 +3,7 @@
 
     --color-uno: #292e1e;
     --color-dos: #e08e45;
-    --color-tres: rgb(107, 39, 55);
+    --color-tres: #6b2737;
     --color-cuatro: #AFBBF2;
     --color-cinco: #D3FFF3;
 }
@@ -48,10 +48,11 @@ textarea {
     font-size: 2em;
     resize: none;
     font-size: 2em;
+    color: var(--color-tres);
 }
 
 textarea::placeholder {
-    color: var(--color-cinco);
+    color: var(--color-tres);
 }
 
 small {
