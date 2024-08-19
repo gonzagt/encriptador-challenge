@@ -20,7 +20,7 @@
                 <textarea name="text" id="text" rows="4" cols="40" placeholder="Ingrese el texto aquí..."></textarea>
                 
                 <small>
-                    <div id="error"></div>
+                    <div class="error"></div>
                     No se aceptan mayúsculas, números o caracteres especiales.
                 </small>
                 
@@ -38,18 +38,18 @@
             
             <div class="sector__resultado">
                 
-                <img class="img" src="./img/question.webp" alt="Caricatura de persona con un signo de pregunta esperando respuesta.">
+                <img class="img" src="./img/question.png" alt="Caricatura de persona con un signo de pregunta esperando respuesta.">
                 
                 <section class="resultado" hidden>
                     
-                    <div class="resultado__final">
+                    <textarea class="resultado__final">
                         Aquí va el resultado.
-                    </div>
+                    </textarea>
                     
                 </section>
-                <div class="resultado__botones" hidden>
-                    <button class="copiar">Copiar</button>
-                    <button class="resetear" onclick="reset()">Reset</button>
+                <div class="resultado__botones">
+                    <button class="copiar" hidden>Copiar</button>
+                    <button class="resetear" onclick="reset()" hidden>Reset</button>
                 </div>
             </div>           
         </main>

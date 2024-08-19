@@ -1,10 +1,11 @@
 // -------------- Variables --------------
 
 const boton = document.querySelector('.copiar');
-const botones_resultado = document.querySelector('.resultado__botones');
+const btn_resultado_1 = document.querySelector('.copiar');
+const btn_resultado_2 = document.querySelector('.resetear');
 const caja = document.querySelector('.resultado');
 const imagen = document.querySelector('.img');
-const mensaje = document.getElementById('error');
+const mensaje = document.querySelector('.error');
 const resultado__final = document.querySelector('.resultado__final');
 const texto_usuario = document.getElementById('text');
 
@@ -53,6 +54,8 @@ const encriptar = () => {
     
     resultado.length === 0 ? console.log('Error 404, text not found.'): cambio();
 
+    mensaje.textContent = '';
+
     return resultado__final.textContent = encriptado;
 }
 
@@ -73,6 +76,8 @@ const desencriptar = () => {
         cambio();
     } 
     
+    mensaje.textContent = '';
+
     return resultado__final.textContent = desencriptado;
 }
 
@@ -112,12 +117,14 @@ const reset = () => {
     texto_usuario.value = '';
     imagen.style.display = 'block';
     caja.hidden = true;
-    botones_resultado.hidden = true;
+    btn_resultado_1.hidden = true;
+    btn_resultado_2.hidden = true;
     resultado = [];
 }
 
 const cambio = () => {
     imagen.style.display = "none";
     caja.hidden = false;
-    botones_resultado.hidden = false;
+    btn_resultado_1.hidden = false;
+    btn_resultado_2.hidden = false;
 }

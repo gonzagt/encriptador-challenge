@@ -1,10 +1,20 @@
-
 :root {
     --fuente-roboto: roboto, Arial, Helvetica, sans-serif;
+
+    --color-uno: #292e1e;
+    --color-dos: #e08e45;
+    --color-tres: #6b2737;
+    --color-cuatro: #AFBBF2;
+    --color-cinco: #D3FFF3;
+}
+
+header {
+    padding: 5vh;
 }
 
 body {
     font-family: var(--fuente-roboto);
+    background-color: var(--color-cinco);
     display: flex;
     flex-direction: column;
     margin: 0;
@@ -14,47 +24,111 @@ body {
 
 main {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     white-space: wrap;
+    width: 100%;
+    height: calc(100vh-100px);
+    gap: 10%;
 }
 
 h1 {
     text-align: center;
-    background-color: rgb(200, 100, 50);
+    color: var(--color-dos)
 }
 
 textarea {
-    max-width: 20vw;
-    max-height: 30vh;
+    width: 20vw;
+    height: 30vh;
+    margin: 20px;
+    background-color: var(--color-cuatro);
+    border: 3px solid var(--color-tres);
+    border-radius: 2%;
+    font-size: 2em;
+    resize: none;
+    font-size: 2em;
 }
 
 small {
     font-family: var(--fuente-roboto);
+    text-align: center;
 }
 
-.resultado {
-    height: 70%;
-    width: 70%;
-    background-color: rgb(0, 0, 0);
-    color:white;
+@media (max-width: 850px) {
+    main {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    textarea {
+        max-width: 60vw;
+        max-height: 30vh;
+    }
+
+    footer {
+        padding-top: 3vh !important;
+    }
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    font-family: var(--fuente-roboto);
+    padding-top: 25vh;
+    gap: 20px;
+}
+
+.error {
+    margin-bottom: 20px;
+}
+
+.sector__usuario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
 }
 
 .sector__usuario, .sector__resultado {
-    text-align: center;
-    width: 80vw;
-    height: 60vh;
-    gap: 30px;
+    width: 40vw;
+    height: 50vh;
 }
 
-.botones {
+.sector__resultado {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+.botones, .resultado__botones {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.encriptar, .desencriptar, .copiar, .resetear {
+    border: 2px solid var(--color-uno);
+    background-color: white;
+    color: black;
+    padding: 14px 30px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 140px;
 }
 
 .img {
     border: 2px solid black;
     border-color: black;
     border-radius: 100%;
-    width: 38vh;
-    height: 18vw;
+    width: 40vh;
+    height: 40vh;
+}
+
+.encriptar:hover, .desencriptar:hover, 
+.copiar:hover, .resetear:hover {
+    background-color: var(--color-dos);
+    color: white;
 }
