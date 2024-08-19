@@ -6,6 +6,7 @@
     --color-tres: #6b2737;
     --color-cuatro: #AFBBF2;
     --color-cinco: #D3FFF3;
+    --color-seis: #cdd1c4;
 }
 
 header {
@@ -109,6 +110,15 @@ footer {
     width: 140px;
 }
 
+.encriptar_d, .desencriptar_d {
+    border: 2px solid var(--color-seis);
+    background-color: white;
+    color: gray;
+    padding: 14px 30px;
+    border-radius: 5px;
+    width: 140px;
+}
+
 .img {
     border: 4px solid black;
     border-color: var(--color-tres);
@@ -136,6 +146,6 @@ footer {
     }
 
     footer {
-        padding-top: 3vh !important;
+        padding-top: 3vh;
     }
 }

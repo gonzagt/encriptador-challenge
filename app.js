@@ -7,7 +7,9 @@ const caja = document.querySelector('.resultado');
 const imagen = document.querySelector('.img');
 const mensaje = document.querySelector('.error');
 const resultado__final = document.querySelector('.resultado__final');
-const texto_usuario = document.getElementById('text');
+const texto_usuario = document.querySelector('.text');
+const btn_encriptar = document.querySelector('#encriptar');
+const btn_desencriptar = document.querySelector('#desencriptar');
 
 let resultado = [];
 
@@ -117,8 +119,13 @@ const reset = () => {
     texto_usuario.value = '';
     imagen.style.display = 'block';
     caja.hidden = true;
+    mensaje.textContent = '';
     btn_resultado_1.hidden = true;
     btn_resultado_2.hidden = true;
+    btn_encriptar.classList.remove('encriptar');
+    btn_encriptar.classList.add('encriptar_d');
+    btn_desencriptar.classList.remove('desencriptar');
+    btn_desencriptar.classList.add('desencriptar_d');
     resultado = [];
 }
 
@@ -128,3 +135,33 @@ const cambio = () => {
     btn_resultado_1.hidden = false;
     btn_resultado_2.hidden = false;
 }
+
+// -------------- Extra 2: deshabilitar botones --------------
+
+texto_usuario.addEventListener('change', () => {
+    const texto = texto_usuario.value;
+
+    if (texto.length === 0) {
+        btn_encriptar.disabled = true;
+        btn_desencriptar.disabled = true;
+    } else {
+        btn_encriptar.disabled = false;
+        btn_desencriptar.disabled = false;
+    }
+});
+
+texto_usuario.addEventListener('input', ()=> {
+    const texto = texto_usuario.value;
+
+    if (texto.length === 0) {
+        btn_encriptar.classList.remove('encriptar');
+        btn_desencriptar.classList.remove('desencriptar');
+        btn_encriptar.classList.add('encriptar_d');
+        btn_desencriptar.classList.add('desencriptar_d');
+    } else {
+        btn_encriptar.classList.remove('encriptar_d');
+        btn_desencriptar.classList.remove('desencriptar_d');
+        btn_encriptar.classList.add('encriptar');
+        btn_desencriptar.classList.add('desencriptar');
+    }
+})

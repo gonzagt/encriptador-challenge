@@ -17,7 +17,7 @@
         <main>
             <div class="sector__usuario">
                 
-                <textarea name="text" id="text" rows="4" cols="40" placeholder="Ingrese el texto aquí..."></textarea>
+                <textarea name="text" class="text" rows="4" cols="40" placeholder="Ingrese el texto aquí..."></textarea>
                 
                 <small>
                     <div class="error"></div>
@@ -27,11 +27,11 @@
                 <div class="botones">
                     
                     <div class="btn_encriptar">
-                        <button class="encriptar" type="button" onclick="encriptar()">Encriptar</button>
+                        <button id="encriptar" class="encriptar_d" type="button" onclick="encriptar()" disabled>Encriptar</button>
                     </div>
                     
                     <div class="btn_desencriptar">
-                        <button class="desencriptar" type="button" onclick="desencriptar()">Desencriptar</button>
+                        <button id="desencriptar" class="desencriptar_d" type="button" onclick="desencriptar()" disabled>Desencriptar</button>
                     </div>
                 </div>            
             </div>
