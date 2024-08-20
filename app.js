@@ -1,16 +1,22 @@
 // -------------- Variables --------------
 
 const boton = document.querySelector('.copiar');
+const btn_encriptar = document.querySelector('#encriptar');
+const btn_desencriptar = document.querySelector('#desencriptar');
 const btn_resultado_1 = document.querySelector('.copiar');
 const btn_resultado_2 = document.querySelector('.resetear');
 const caja = document.querySelector('.resultado');
+const div_invisible = document.querySelector('.invisible');
+const gritar = document.querySelector('.small');
 const imagen = document.querySelector('.img');
 const mensaje = document.querySelector('.error');
 const resultado__final = document.querySelector('.resultado__final');
 const texto_usuario = document.querySelector('.text');
-const btn_encriptar = document.querySelector('#encriptar');
-const btn_desencriptar = document.querySelector('#desencriptar');
-const div_invisible = document.querySelector('.invisible');
+
+const max_height = '71px';
+const min_height = '44px';
+const mayuscula = 'uppercase';
+const minuscula = 'lowercase';
 
 let resultado = [];
 
@@ -90,9 +96,11 @@ texto_usuario.addEventListener('input', ()=>{
     const regex = /^[a-z' ']*$/;
     if (regex.test(texto_usuario.value)) {
         mensaje.textContent = '';
-        div_invisible.style.height = '36px';
+        div_invisible.style.height = min_height;
+        gritar.style.textTransform = minuscula;
     } else {
-        div_invisible.style.height = '53px';
+        div_invisible.style.height = max_height;
+        gritar.style.textTransform = mayuscula;
         mensaje.textContent = '⛔ CUIDADO ⛔';
         texto_usuario.value = texto_usuario.value.replace(/[^a-z' ']/g, '');
     }
@@ -123,6 +131,8 @@ const reset = () => {
     imagen.style.display = 'block';
     caja.hidden = true;
     mensaje.textContent = '';
+    div_invisible.style.height = min_height;
+    gritar.style.textTransform = minuscula;
     btn_resultado_1.hidden = true;
     btn_resultado_2.hidden = true;
     btn_encriptar.classList.remove('encriptar');
