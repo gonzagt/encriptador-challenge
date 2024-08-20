@@ -16,10 +16,6 @@
     --padding-botones: 14px 30px;
 }
 
-header {
-    padding: 5vh;
-}
-
 body {
     font-family: var(--fuente-roboto);
     background-color: var(--color-cinco);
@@ -40,9 +36,11 @@ main {
 }
 
 h1 {
+    padding: 5vh;
     text-align: center;
     color: var(--color-tres);
-    text-decoration: underline;
+    text-decoration: dotted;
+    text-decoration-color: #292e1e;
     text-transform: uppercase;
 }
 
