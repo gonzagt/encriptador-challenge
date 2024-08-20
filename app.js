@@ -13,8 +13,9 @@ const mensaje = document.querySelector('.error');
 const resultado__final = document.querySelector('.resultado__final');
 const texto_usuario = document.querySelector('.text');
 
-const max_height = '71px';
-const min_height = '44px';
+const cuidado = '⛔ CUIDADO ⛔';
+const max_height = '60px';
+const min_height = '21px';
 const mayuscula = 'uppercase';
 const minuscula = 'lowercase';
 
@@ -64,6 +65,8 @@ const encriptar = () => {
     resultado.length === 0 ? console.log('Error 404, text not found.'): cambio();
 
     mensaje.textContent = '';
+    div_invisible.style.height = min_height;
+    gritar.style.textTransform = minuscula;
 
     return resultado__final.textContent = encriptado;
 }
@@ -87,7 +90,9 @@ const desencriptar = () => {
 // Validación de minúsculas.
 
 texto_usuario.addEventListener('input', ()=>{
+
     const regex = /^[a-z' ']*$/;
+
     if (regex.test(texto_usuario.value)) {
         mensaje.textContent = '';
         div_invisible.style.height = min_height;
@@ -95,7 +100,7 @@ texto_usuario.addEventListener('input', ()=>{
     } else {
         div_invisible.style.height = max_height;
         gritar.style.textTransform = mayuscula;
-        mensaje.textContent = '⛔ CUIDADO ⛔';
+        mensaje.textContent = cuidado;
         texto_usuario.value = texto_usuario.value.replace(/[^a-z' ']/g, '');
     }
 })
@@ -103,7 +108,9 @@ texto_usuario.addEventListener('input', ()=>{
 // -------------- Botón de copiar --------------
     
 boton.addEventListener('click', () => {
+
     const tempInput = document.createElement('input');
+    
     tempInput.value = resultado__final.textContent;
     document.body.appendChild(tempInput);
     tempInput.select();
@@ -122,7 +129,7 @@ boton.addEventListener('click', () => {
 
 const reset = () => {
     texto_usuario.value = '';
-    imagen.style.display = 'block';
+    imagen.style.display = 'inline-block';
     caja.hidden = true;
     mensaje.textContent = '';
     div_invisible.style.height = min_height;
@@ -140,7 +147,10 @@ const reset = () => {
 
 const cambio = () => {
     imagen.style.display = "none";
-    caja.hidden = false;
+    caja.hidden = false;    
+    mensaje.textContent === cuidado
+        ? div_invisible.style.height = max_height
+        : div_invisible.style.height = min_height;
     btn_resultado_1.hidden = false;
     btn_resultado_2.hidden = false;
 }
