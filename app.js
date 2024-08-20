@@ -13,8 +13,8 @@ const resultado__final = document.querySelector('.resultado__final');
 const texto_usuario = document.querySelector('.text');
 
 const cuidado = '⛔ CUIDADO ⛔';
-const max_height = '60px';
-const min_height = '21px';
+const max_height = '40px';
+const min_height = '19px';
 const mayuscula = 'uppercase';
 const minuscula = 'lowercase';
 
