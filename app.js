@@ -10,6 +10,7 @@ const resultado__final = document.querySelector('.resultado__final');
 const texto_usuario = document.querySelector('.text');
 const btn_encriptar = document.querySelector('#encriptar');
 const btn_desencriptar = document.querySelector('#desencriptar');
+const div_invisible = document.querySelector('.invisible');
 
 let resultado = [];
 
@@ -89,7 +90,9 @@ texto_usuario.addEventListener('input', ()=>{
     const regex = /^[a-z' ']*$/;
     if (regex.test(texto_usuario.value)) {
         mensaje.textContent = '';
+        div_invisible.style.height = '36px';
     } else {
+        div_invisible.style.height = '53px';
         mensaje.textContent = '⛔ CUIDADO ⛔';
         texto_usuario.value = texto_usuario.value.replace(/[^a-z' ']/g, '');
     }

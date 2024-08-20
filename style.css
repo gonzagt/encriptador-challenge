@@ -1,5 +1,6 @@
 :root {
     --fuente-roboto: roboto, Arial, Helvetica, sans-serif;
+    --fuente-courier: 'Courier New', Courier, monospace;
 
     --color-uno: #292e1e;
     --color-dos: #e08e45;
@@ -7,6 +8,12 @@
     --color-cuatro: #AFBBF2;
     --color-cinco: #D3FFF3;
     --color-seis: #cdd1c4;
+    --blanco: white;
+    --gris: gray;
+    --negro: black;
+    
+    --width-botones: 140px;
+    --padding-botones: 14px 30px;
 }
 
 header {
@@ -64,9 +71,14 @@ small {
 footer {
     display: flex;
     justify-content: center;
-    font-family: var(--fuente-roboto);
+    font-family: var(--fuente-courier);
     padding-top: 25vh;
     gap: 20px;
+}
+
+footer > a {
+    text-decoration: none;
+    font-family: var(--fuente-courier);
 }
 
 .error {
@@ -102,35 +114,43 @@ footer {
 
 .encriptar, .desencriptar, .copiar, .resetear {
     border: 2px solid var(--color-uno);
-    background-color: white;
-    color: black;
-    padding: 14px 30px;
+    background-color: var(--blanco);
+    color: var(--negro);
+    padding: var(--padding-botones);
     cursor: pointer;
     border-radius: 5px;
-    width: 140px;
+    width: var(--width-botones);
 }
 
 .encriptar_d, .desencriptar_d {
     border: 2px solid var(--color-seis);
-    background-color: white;
-    color: gray;
-    padding: 14px 30px;
+    background-color: var(--blanco);
+    color: var(--gris);
+    padding: var(--padding-botones);
     border-radius: 5px;
-    width: 140px;
+    width: var(--width-botones);
 }
 
 .img {
-    border: 4px solid black;
-    border-color: var(--color-tres);
+    border: 4px solid var(--negro);
+    border-color: var(--color-cuatro);
     border-radius: 100%;
     width: 40vh;
     height: 40vh;
 }
 
+.invisible {
+    height: 36px;
+}
+
 .encriptar:hover, .desencriptar:hover, 
 .copiar:hover, .resetear:hover {
     background-color: var(--color-dos);
-    color: white;
+    color: var(--blanco);
+}
+
+footer>a:hover {
+    color: var(--color-cuatro);
 }
 
 @media (max-width: 850px) {
