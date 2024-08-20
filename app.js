@@ -77,14 +77,8 @@ const desencriptar = () => {
     for (let [letra, reemplazo] of Object.entries(letras)) {
         desencriptado = desencriptado.replaceAll(reemplazo, letra);
     }
-
-    if (desencriptado === '') {
-        console.log('Error 404, text not found.'); 
-        reset();
-    } else {
-        cambio();
-    } 
     
+    cambio();
     mensaje.textContent = '';
 
     return resultado__final.textContent = desencriptado;
@@ -139,6 +133,8 @@ const reset = () => {
     btn_encriptar.classList.add('encriptar_d');
     btn_desencriptar.classList.remove('desencriptar');
     btn_desencriptar.classList.add('desencriptar_d');
+    btn_encriptar.disabled = true;
+    btn_desencriptar.disabled = true;
     resultado = [];
 }
 
