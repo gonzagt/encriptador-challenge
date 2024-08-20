@@ -18,7 +18,7 @@
         <main>
             <div class="sector__usuario">
                 
-                <textarea name="text" class="text" rows="4" cols="40" placeholder="Ingrese el texto aquí..."></textarea>
+                <textarea name="text" class="text" placeholder="Ingrese el texto aquí..."></textarea>
                 
                 <small class="small">
                     <div class="error"></div>
@@ -43,16 +43,16 @@
                 
                 <section class="resultado" hidden>
                     
-                    <textarea class="resultado__final" readonly>
+                    <textarea class="resultado__final" readonly hidden>
                         Aquí va el resultado.
                     </textarea>
-                    
-                </section>
-                <div class="invisible"></div>
+                    <div class="invisible"></div>
                 <div class="resultado__botones">
                     <button class="copiar" hidden>Copiar</button>
                     <button class="resetear" onclick="reset()" hidden>Reset</button>
                 </div>
+                </section>
+                
             </div>           
         </main>
         

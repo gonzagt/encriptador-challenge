@@ -5,7 +5,6 @@ const btn_encriptar = document.querySelector('#encriptar');
 const btn_desencriptar = document.querySelector('#desencriptar');
 const btn_resultado_1 = document.querySelector('.copiar');
 const btn_resultado_2 = document.querySelector('.resetear');
-const caja = document.querySelector('.resultado');
 const div_invisible = document.querySelector('.invisible');
 const gritar = document.querySelector('.small');
 const imagen = document.querySelector('.img');
@@ -61,12 +60,10 @@ const encriptar = () => {
     }
 
     encriptado = resultado.join('');
-    
-    resultado.length === 0 ? console.log('Error 404, text not found.'): cambio();
-
     mensaje.textContent = '';
     div_invisible.style.height = min_height;
     gritar.style.textTransform = minuscula;
+    resultado.length === 0 ? console.log('Error 404, text not found.'): cambio();
 
     return resultado__final.textContent = encriptado;
 }
@@ -83,6 +80,8 @@ const desencriptar = () => {
     
     cambio();
     mensaje.textContent = '';
+    div_invisible.style.height = min_height;
+    gritar.style.textTransform = minuscula;
 
     return resultado__final.textContent = desencriptado;
 }
@@ -130,8 +129,8 @@ boton.addEventListener('click', () => {
 const reset = () => {
     texto_usuario.value = '';
     imagen.style.display = 'inline-block';
-    caja.hidden = true;
     mensaje.textContent = '';
+    resultado__final.hidden = true;
     div_invisible.style.height = min_height;
     gritar.style.textTransform = minuscula;
     btn_resultado_1.hidden = true;
@@ -147,7 +146,7 @@ const reset = () => {
 
 const cambio = () => {
     imagen.style.display = "none";
-    caja.hidden = false;    
+    resultado__final.hidden = false;
     mensaje.textContent === cuidado
         ? div_invisible.style.height = max_height
         : div_invisible.style.height = min_height;
