@@ -3,17 +3,16 @@
 const boton = document.querySelector('.copiar');
 const btn_encriptar = document.querySelector('#encriptar');
 const btn_desencriptar = document.querySelector('#desencriptar');
-const btn_resultado_1 = document.querySelector('.copiar');
-const btn_resultado_2 = document.querySelector('.resetear');
-const div_invisible = document.querySelector('.invisible');
-const gritar = document.querySelector('.small');
+const btn_copiar = document.querySelector('.copiar');
+const btn_reset = document.querySelector('.resetear');
+const gritar = document.querySelector('.gritar');
 const imagen = document.querySelector('.img');
 const mensaje = document.querySelector('.error');
 const resultado__final = document.querySelector('.resultado__final');
 const resultado__responsive = document.querySelector('.resultado');
 const texto_usuario = document.querySelector('.text');
 
-const cuidado = '⛔ CUIDADO ⛔';
+const cuidado = '⛔ ATENCIÓN, LEER INSTRUCCIONES ⛔';
 const display = 'inline';
 const display2 = 'block';
 const none = 'none';
@@ -21,6 +20,7 @@ const max_height = '40px';
 const min_height = '19px';
 const mayuscula = 'uppercase';
 const minuscula = 'lowercase';
+const colorTres = '#f9053ecc';
 
 let resultado = [];
 
@@ -31,7 +31,6 @@ const letras = {
     'o': 'ober',
     'u': 'ufat'
 };
-
 
 // -------------- Funciones --------------
 
@@ -65,11 +64,9 @@ const encriptar = () => {
 
     encriptado = resultado.join('');
     mensaje.textContent = '';
-    div_invisible.style.height = min_height;
     gritar.style.textTransform = minuscula;
-    resultado.length === 0 ? console.log('Error 404, text not found.'): cambio();
-    
-    return resultado__final.textContent = encriptado;
+    resultado__final.textContent = encriptado;
+    cambio();
 }
 
 // Desencriptar manejando un objeto.
@@ -82,12 +79,10 @@ const desencriptar = () => {
         desencriptado = desencriptado.replaceAll(reemplazo, letra);
     }
     
-    cambio();
     mensaje.textContent = '';
-    div_invisible.style.height = min_height;
     gritar.style.textTransform = minuscula;
-
-    return resultado__final.textContent = desencriptado;
+    resultado__final.textContent = desencriptado;
+    cambio();
 }
 
 // Validación de minúsculas.
@@ -98,12 +93,12 @@ texto_usuario.addEventListener('input', ()=>{
 
     if (regex.test(texto_usuario.value)) {
         mensaje.textContent = '';
-        div_invisible.style.height = min_height;
         gritar.style.textTransform = minuscula;
     } else {
-        div_invisible.style.height = max_height;
         gritar.style.textTransform = mayuscula;
+        gritar.style.color = colorTres;
         mensaje.textContent = cuidado;
+        mensaje.hidden = false;
         texto_usuario.value = texto_usuario.value.replace(/[^a-z' ']/g, '');
     }
 })
@@ -136,10 +131,9 @@ const reset = () => {
     mensaje.textContent = '';
     resultado__final.hidden = true;
     resultado__responsive.style.display = none;
-    div_invisible.style.height = min_height;
     gritar.style.textTransform = minuscula;
-    btn_resultado_1.hidden = true;
-    btn_resultado_2.hidden = true;
+    btn_copiar.hidden = true;
+    btn_reset.hidden = true;
     btn_encriptar.classList.remove('encriptar');
     btn_encriptar.classList.add('encriptar_d');
     btn_desencriptar.classList.remove('desencriptar');
@@ -153,11 +147,8 @@ const cambio = () => {
     imagen.style.display = none;
     resultado__responsive.style.display = display2;
     resultado__final.hidden = false;
-    mensaje.textContent === cuidado
-        ? div_invisible.style.height = max_height
-        : div_invisible.style.height = min_height;
-    btn_resultado_1.hidden = false;
-    btn_resultado_2.hidden = false;
+    btn_copiar.hidden = false;
+    btn_reset.hidden = false;
 }
 
 // -------------- Extra 2: deshabilitar botones --------------

@@ -15,15 +15,14 @@
         
         <h1>Bienvenidos al encriptador de texto</h1>
 
+        <p><strong>Instrucciones:</strong> escribe un mensaje <span class="gritar">en minúsculas, sin números o caracteres especiales</span> y presiona el botón "encriptar".</p>
+
+        <div class="error"></div>
+
         <main>
             <div class="sector__usuario">
                 
-                <textarea name="text" class="text" placeholder="Ingrese el texto aquí..."></textarea>
-                
-                <small class="small">
-                    <div class="error"></div>
-                    solo en minuscula, sin numeros o caracteres especiales.
-                </small>
+                <textarea class="text" placeholder="Ingrese el texto aquí..."></textarea>
                 
                 <div class="botones">
                     
@@ -46,7 +45,6 @@
                     <textarea class="resultado__final" readonly hidden>
                         Aquí va el resultado.
                     </textarea>
-                    <div class="invisible"></div>
                 <div class="resultado__botones">
                     <button class="copiar" hidden>Copiar</button>
                     <button class="resetear" onclick="reset()" hidden>Reset</button>
