@@ -84,11 +84,13 @@ textarea::placeholder {
 footer {
     display: flex;
     justify-content: center;
+    align-items: center;
     font-family: var(--fuente-courier);
     padding-top: 20vh;
     margin-top: 5vh;
     margin-bottom: 3vh;
     gap: 20px;
+    position:relative;
     bottom: 0;
     width: 100%;
 }
@@ -141,6 +143,21 @@ footer>div>a {
     height: 40vh;
 }
 
+footer>div {
+    display: flex;
+    gap: 10%;
+}
+
+footer>div>a {
+    display: flex;
+    gap: 2px;
+    align-items: center;
+}
+
+footer>div>a>img {
+    height: 15px;
+    width: 15px;
+}
 
 .encriptar:hover, .desencriptar:hover, 
 .copiar:hover, .resetear:hover {
@@ -195,6 +212,7 @@ footer>div>a:hover {
     }
 
     footer {
+        text-align: center;
         padding: 0;
         margin: 30px 0 15px 0;
     }
@@ -208,5 +226,17 @@ footer>div>a:hover {
 
     .resultado {
         display: none;
+    }
+
+    footer {
+        max-width: 90%;
+        white-space: wrap;
+        gap: 3%;
+    }
+
+    footer>div {
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 10%;
     }
 }

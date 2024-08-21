@@ -21,6 +21,7 @@ const min_height = '19px';
 const mayuscula = 'uppercase';
 const minuscula = 'lowercase';
 const colorTres = '#f9053ecc';
+const colorDos = 'var(--color-dos)'
 
 let resultado = [];
 
@@ -81,6 +82,7 @@ const desencriptar = () => {
     
     mensaje.textContent = '';
     gritar.style.textTransform = minuscula;
+    gritar.style.color = colorDos;
     resultado__final.textContent = desencriptado;
     cambio();
 }
@@ -94,6 +96,7 @@ texto_usuario.addEventListener('input', ()=>{
     if (regex.test(texto_usuario.value)) {
         mensaje.textContent = '';
         gritar.style.textTransform = minuscula;
+        gritar.style.color = colorDos;
     } else {
         gritar.style.textTransform = mayuscula;
         gritar.style.color = colorTres;
@@ -121,6 +124,9 @@ boton.addEventListener('click', () => {
         console.log(`Se produjo el error ${err}`);       
     }
     document.body.removeChild(tempInput);
+    mensaje.textContent = '';
+    gritar.style.textTransform = minuscula;
+    gritar.style.color = colorDos;
 })
 
 // -------------- Extra: botón de reset --------------
@@ -132,6 +138,7 @@ const reset = () => {
     resultado__final.hidden = true;
     resultado__responsive.style.display = none;
     gritar.style.textTransform = minuscula;
+    gritar.style.color = colorDos;
     btn_copiar.hidden = true;
     btn_reset.hidden = true;
     btn_encriptar.classList.remove('encriptar');
