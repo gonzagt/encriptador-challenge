@@ -10,9 +10,13 @@ const gritar = document.querySelector('.small');
 const imagen = document.querySelector('.img');
 const mensaje = document.querySelector('.error');
 const resultado__final = document.querySelector('.resultado__final');
+const resultado__responsive = document.querySelector('.resultado');
 const texto_usuario = document.querySelector('.text');
 
 const cuidado = '⛔ CUIDADO ⛔';
+const display = 'inline';
+const display2 = 'block';
+const none = 'none';
 const max_height = '40px';
 const min_height = '19px';
 const mayuscula = 'uppercase';
@@ -64,7 +68,7 @@ const encriptar = () => {
     div_invisible.style.height = min_height;
     gritar.style.textTransform = minuscula;
     resultado.length === 0 ? console.log('Error 404, text not found.'): cambio();
-
+    
     return resultado__final.textContent = encriptado;
 }
 
@@ -128,9 +132,10 @@ boton.addEventListener('click', () => {
 
 const reset = () => {
     texto_usuario.value = '';
-    imagen.style.display = 'inline-block';
+    imagen.style.display = display;
     mensaje.textContent = '';
     resultado__final.hidden = true;
+    resultado__responsive.style.display = none;
     div_invisible.style.height = min_height;
     gritar.style.textTransform = minuscula;
     btn_resultado_1.hidden = true;
@@ -145,7 +150,8 @@ const reset = () => {
 }
 
 const cambio = () => {
-    imagen.style.display = "none";
+    imagen.style.display = none;
+    resultado__responsive.style.display = display2;
     resultado__final.hidden = false;
     mensaje.textContent === cuidado
         ? div_invisible.style.height = max_height

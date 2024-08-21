@@ -4,7 +4,7 @@
 
     --color-uno: #292e1e;
     --color-dos: #e08e45;
-    --color-tres: #6b2737;
+    --color-tres: #6b27379a;
     --color-cuatro: #AFBBF2;
     --color-cinco: #D3FFF3;
     --color-seis: #cdd1c4;
@@ -71,6 +71,7 @@ small {
 
 small > .error {
     margin: 0;
+    color: var(--color-tres);
 }
 
 footer {
@@ -79,10 +80,13 @@ footer {
     font-family: var(--fuente-courier);
     padding-top: 20vh;
     margin-top: 5vh;
+    margin-bottom: 3vh;
     gap: 20px;
+    bottom: 0;
+    width: 100%;
 }
 
-footer > a {
+footer>div>a {
     text-decoration: none;
     font-family: var(--fuente-courier);
     color: var(--color-tres);
@@ -168,8 +172,8 @@ footer>a:hover {
     }
 
     .img {
-        width: 30vh;
-        height: 30vh;
+        width: 43vh;
+        height: 40vh;
     }
 
     textarea, .resultado__final {
@@ -188,8 +192,23 @@ footer>a:hover {
         align-items: center;
     }
 
+    .resultado {
+        display: none;
+    }
+
     footer {
         padding: 0;
         margin: 30px 0 15px 0;
+    }
+}
+
+@media (max-width: 530px) {
+    img {
+        max-width: 90%;
+        max-height: 90%;
+    }
+
+    .resultado {
+        display: none;
     }
 }
