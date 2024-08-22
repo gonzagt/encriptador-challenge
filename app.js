@@ -91,7 +91,7 @@ const desencriptar = () => {
 
 texto_usuario.addEventListener('input', ()=>{
 
-    const regex = /^[a-z' ']*$/;
+    const regex = /^[a-zñ' ']*$/;
 
     if (regex.test(texto_usuario.value)) {
         mensaje.textContent = '';
@@ -102,7 +102,7 @@ texto_usuario.addEventListener('input', ()=>{
         gritar.style.color = colorTres;
         mensaje.textContent = cuidado;
         mensaje.hidden = false;
-        texto_usuario.value = texto_usuario.value.replace(/[^a-z' ']/g, '');
+        texto_usuario.value = texto_usuario.value.replace(/[^a-zñ' ']/g, '');
     }
 })
 
