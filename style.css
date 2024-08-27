@@ -29,6 +29,7 @@ body {
 body>p {
     text-align: center;
     color: var(--color-dos);
+    padding: 0px 10px;
 }
 
 main {
