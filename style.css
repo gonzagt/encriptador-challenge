@@ -66,6 +66,7 @@ textarea, .resultado__final {
     resize: none;
     color: var(--color-tres);
     box-sizing: border-box;
+    outline: none;
 }
 
 textarea::placeholder {
